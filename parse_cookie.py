@@ -17,3 +17,4 @@ if __name__ == '__main__':
   assert parse('ghegjrelgj;1=;=3;=4 1=0') == {'1': '', '': '4 1=0'}
   assert parse('ghegjrelgj;1=;=3;=4;1=0') == {'1': '0', '': '4'}
   assert parse('ghegjrelgj;1=;=3;=4; 1=0') == {'1': '', '': '4',' 1':'0'}
+  #ready
