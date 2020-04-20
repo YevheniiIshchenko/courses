@@ -19,3 +19,5 @@ if __name__ == '__main__':
   assert parse('aaa=aaa') == {'aaa':'aaa'}
   assert parse('=') == {'':''}
   assert parse('http://example.com/?') == {}
+
+#I think, it`s done
