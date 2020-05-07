@@ -5,7 +5,6 @@ from students.models import Student
 from faker import Faker
 
 import random
-import string
 
 fake = Faker("uk_UA")
 
