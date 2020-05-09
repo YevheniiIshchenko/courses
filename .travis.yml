@@ -4,4 +4,4 @@ python:
 install:
   - pip install -r requirments.txt
 script:
-  - flake8 ./scr_first_djago
+  - flake8 ./scr_first_django
