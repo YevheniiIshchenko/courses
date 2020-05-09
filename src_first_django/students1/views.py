@@ -1,12 +1,12 @@
+import random
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render  # noqa
 
-# Create your views here.
-from students1.models import Student
 from faker import Faker
 
-import random
+from students1.models import Student
+
 
 fake = Faker("uk_UA")
 

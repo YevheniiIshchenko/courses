@@ -1,26 +1,15 @@
-"""first_django URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 
-from students1 import views
+
+from students1 import views as students_views
+
+from teachers import views as teachers_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('generate_student', views.generate_student),
-    path('generate_students', views.generate_students),
+    path('generate_student', students_views.generate_student),
+    path('generate_students', students_views.generate_students),
+    path('show_filtered_teachers', teachers_views.show_filtered_teachers)
 ]
