@@ -4,4 +4,4 @@ python:
 install:
   - pip install -r requirments.txt
 script:
-  - pytest
+  - flake8 ./scr_first_djago
