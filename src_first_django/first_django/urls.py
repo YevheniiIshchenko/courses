@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path
 
+from groups import views as groups_views
 
 from students1 import views as students_views
 
 from teachers import views as teachers_views
 
-from groups import views as groups_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),

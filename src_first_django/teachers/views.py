@@ -5,8 +5,9 @@ from django.shortcuts import render
 
 from faker import Faker
 
-from teachers.models import Teacher
 from teachers.forms import TeacherCreateForm
+from teachers.models import Teacher
+
 
 fake = Faker("uk_UA")
 stups = ['professor', 'docent', 'assistant']
