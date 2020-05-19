@@ -10,4 +10,7 @@ class Group(models.Model):
 
     @property
     def code_of_group(self):
-        return f'{self.facult} {self.spec}-{self.year}'
+        return f'{str(self.facult)[0]}{str(self.spec)[0]}-{self.year}'
+
+    def __str__(self):
+        return f'{str(self.facult)} {str(self.spec)} {self.year}'

@@ -1,7 +1,9 @@
 import random
 
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 
 from faker import Faker
 
@@ -42,20 +44,46 @@ def show_filtered_teachers(request):
     teach = list(teach)
     for obj in teach:
         response += f'{obj.full_name}</br>'
-    return HttpResponse(response)
+    return render(request, 'show-teachers.html', context={'teachers': teach})
 
 
 def index(request):
     return render(request, 'index.html')
 
 
+@csrf_exempt
 def create_teacher(request):
-    form = TeacherCreateForm(request.GET)
+    if request.method == "POST":
+        form = TeacherCreateForm(request.POST)
 
-    context = {'create_form': form}
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('teachers:show_filtered'))
 
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect('/')
+    elif request.method == "GET":
+        form = TeacherCreateForm()
 
-    return render(request, 'create-teacher.html', context=context)
+    return render(request, 'create-student.html', context={'form': form})
+
+
+@csrf_exempt
+def edit_teacher(request, pk):
+
+    teach = get_object_or_404(Teacher, id=pk)
+
+    if request.method == "POST":
+        form = TeacherCreateForm(request.POST, instance=teach)
+
+        if 'delete' in request.POST:
+            teach.delete()
+            return HttpResponseRedirect(reverse('teachers:show_filtered'))
+
+        elif 'submit' in request.POST:
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(reverse('teachers:show_filtered'))
+
+    elif request.method == "GET":
+        form = TeacherCreateForm(instance=teach)
+
+    return render(request, 'edit-teacher.html', context={'form': form})

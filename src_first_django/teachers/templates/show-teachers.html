@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href = "{% url 'index' %}">Back to index</a>
+<hr>
+List of teachers<br>
+<hr>
+{% for t in teachers %}
+    {{ t.id }} {{ t.full_name }}<a href="{% url 'teachers:edit' t.id %}">EDIT</a><br>
+{% endfor %}
+
+
+</body>
+</html>

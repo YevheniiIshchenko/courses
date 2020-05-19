@@ -6,13 +6,17 @@
 </head>
 <body>
 
+<p>EDIT Student {{id}}</p>
+    {{ method }}<br>
+    {{ isvalid }}<br>
 
-<p>Hier kann man einen Lehrer schaffen</p>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="Submit">Submit</button>
+    <button type="Submit" name="submit">Submit</button><br>
+    <button type="Submit" name="delete">Delete</button><br>
 </form>
+
 
 </body>
 </html>

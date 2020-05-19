@@ -8,8 +8,9 @@
 
 
 <p>Create new Group</p>
-<form>
-    {{ create_form.as_p }}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
     <button type="Submit">Submit</button>
 </form>
 

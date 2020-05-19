@@ -1,3 +1,10 @@
-from django.contrib import admin  # noqa
+from django.contrib import admin
 
-# Register your models here.
+from teachers.models import Teacher
+
+
+class TeacherAdmin(admin.ModelAdmin):
+    list_display = ('stupen', 'first_name', 'last_name')
+
+
+admin.site.register(Teacher, TeacherAdmin)
