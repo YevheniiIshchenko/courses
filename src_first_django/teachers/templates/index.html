@@ -6,11 +6,14 @@
 </head>
 <body>
 
-
-<a href="/create-teacher">create teacher</a><br>
-<a href="/show_filtered_teachers">show all teachers</a><br>
-<a href="/create-group">create group</a><br>
-<a href="/show_groups">show all groups</a><br>
+<a href="{% url 'students:create' %}">create student</a><br>
+<a href="{% url 'students:show' %}">show all students</a><br>
+<hr>
+<a href="{% url 'teachers:create' %}">create teacher</a><br>
+<a href="{% url 'teachers:show_filtered' %}">show all teachers</a><br>
+<hr>
+<a href="{% url 'groups:create' %}">create group</a><br>
+<a href="{% url 'groups:show' %}">show all groups</a><br>
 
 </body>
 </html>

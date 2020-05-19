@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href = "{% url 'index' %}">Back to index</a>
+<hr>
+List of groups<br>
+<hr>
+{% for g in groups %}
+    {{ g.id }} {{ g.code_of_group }} <a href="{% url 'groups:edit' g.id %}">EDIT</a><br>
+{% endfor %}
+</body>
+</html>

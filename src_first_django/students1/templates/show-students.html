@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<a href = "{% url 'index' %}">Back to index</a>
+<hr>
+List of students<br>
+<hr>
+{% for st in students %}
+    {{ st.id }} {{ st.show_student }}<a href="{% url 'students:edit' st.id %}">EDIT</a><br>
+{% endfor %}
+
+
+</body>
+</html>
