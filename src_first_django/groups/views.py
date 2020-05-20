@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
+
 from groups.forms import GroupCreateForm
 from groups.models import Group
 
