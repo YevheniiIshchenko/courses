@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from faker import Faker
 
 from teachers.forms import TeacherCreateForm
-from teachers.models import Teacher
+from teachers.models import Logger, Teacher
 
 
 fake = Faker("uk_UA")
@@ -87,3 +87,11 @@ def edit_teacher(request, pk):
         form = TeacherCreateForm(instance=teach)
 
     return render(request, 'edit-teacher.html', context={'form': form})
+
+
+def show_logs(request):
+    response = ""
+    logs = Logger.objects.all().iterator()
+    for log in logs:
+        response += log.info()+'<br>'
+    return HttpResponse(response)

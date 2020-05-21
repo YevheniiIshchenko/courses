@@ -17,7 +17,8 @@ fake = Faker("uk_UA")
 def make_fake_student() -> Student:
     return Student.objects.create(first_name=fake.first_name(),
                                   last_name=fake.last_name(),
-                                  age=random.randint(5, 120))
+                                  age=random.randint(16, 70),
+                                  phone=fake.phone_number())
 
 
 def generate_student(request):
@@ -29,11 +30,11 @@ def generate_student(request):
 def generate_students(request):
     count = request.GET.get('count', 100)
     response = ""
-    if not count.isdigit():
+    if not str(count).isdigit():
         response = "Invalid parameter"
     elif 0 <= int(count) <= 100:
         count = int(count)
-        for _ in range(count + 1):
+        for _ in range(count):
             st = make_fake_student()
             response += st.show_student() + '<br/>'
     else:
