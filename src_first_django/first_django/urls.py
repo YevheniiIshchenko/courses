@@ -2,8 +2,6 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 
-from groups import views as groups_views
-
 from teachers import views as teachers_views
 
 urlpatterns = [
@@ -14,4 +12,6 @@ urlpatterns = [
     path('students/', include('students1.urls')),
 
     path('', teachers_views.index, name='index'),
+
+    path(r'^silk/', include('silk.urls', namespace='silk')),
 ]

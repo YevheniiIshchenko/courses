@@ -10,3 +10,16 @@ class Teacher(models.Model):
     @property
     def full_name(self):
         return f'{self.stupen} {self.first_name} {self.last_name} '
+
+
+class Logger(models.Model):
+    method = models.CharField(max_length=256, default='')
+    path = models.CharField(max_length=256, default='')
+    execution_time = models.FloatField()
+    created = models.CharField(max_length=256, default='')
+
+    def info(self):
+        return f'{self.method} | {self.path} | {self.execution_time}sec | {self.created}'
+
+    def __str__(self):
+        return self.info()
